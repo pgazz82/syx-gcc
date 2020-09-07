@@ -1,0 +1,9 @@
+0) patch GCC for MUSL
+gcc\config\i386\i386elf.h:
+#define STARTFILE_SPEC "%{!shared: %{!symbolic: %{!p:Scrt1.o%s}}} crtbegin.o%s"
+
+1) Verify if GCC is correct
+CC=gcc.exe
+
+2) Configure GCC from build-gcc folder
+../gcc-9.2.0-syx/configure --target=i686-syx --prefix=/home/Pietro/opt/syx --disable-nls --enable-languages=c,c++ --without-headers
